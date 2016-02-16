@@ -1,4 +1,4 @@
 git checkout production
 git pull
 npm install
-pm2 restart 2
+pm2 restart oocomic
