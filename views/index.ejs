@@ -111,13 +111,13 @@
     });
     $('#shareDesc').change(function() {
       shareConfig.desc = $('#shareDesc').val();
-      SENSORO.share([shareConfig, function(err,ret){
+      SENSORO.share(shareConfig, function(err,ret){
         if(err) {
           console.log('share err', err);
         } else {
           console.log('share ret', ret);
         }
-      }]);
+      });
     });
 
 
