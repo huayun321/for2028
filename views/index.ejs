@@ -90,7 +90,13 @@
 <script>
   $(document).ready(function() {
     SENSORO.init();
-    SENSORO.share({title:'2048', desc:'2048desc'});
+    SENSORO.share({title:'2048', desc:'2048desc'}, function(err, ret) {
+      if(err) {
+        console.log('share err', err);
+      } else {
+        console.log('share ret', ret);
+      }
+    });
 
   });
 </script>
