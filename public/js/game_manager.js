@@ -165,9 +165,22 @@ GameManager.prototype.move = function (direction) {
 
           // Update the score
           self.score += merged.value;
-
           // The mighty 2048 tile
-          if (merged.value === 2048) self.won = true;
+          if (merged.value === 2048) {
+            self.won = true;
+          }
+
+          //for yunzix
+          if(merged.value === 8) {
+            console.log('hello 16');
+            self.won = true;
+          }
+          if(merged.value === 32) {
+            console.log('hello 32');
+          }
+          if(merged.value === 100) {
+
+          }
         } else {
           self.moveTile(tile, positions.farthest);
         }
