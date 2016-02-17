@@ -1,4 +1,4 @@
-function GameManager(size, InputManager, Actuator, StorageManager) {
+function GameManager(SENSORO, size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
@@ -174,6 +174,13 @@ GameManager.prototype.move = function (direction) {
           if(merged.value === 8) {
             console.log('hello 16');
             self.won = true;
+            SENSORO.take('p83Xcs1rarQHX_19IECcqJRrSFvs', function(err, ret) {
+              if(err) {
+                console.log('take err', err);
+              } else {
+                console.log('take ret', ret);
+              }
+            })
           }
           if(merged.value === 32) {
             console.log('hello 32');
