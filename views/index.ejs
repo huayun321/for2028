@@ -70,9 +70,18 @@
     <div class="tile-container">
     </div>
   </div>
+  <div class="gifts-container">
+    <!--<a class="gift-container">128</a>-->
+    <!--<a class="gift-container gift-container-win">256</a>-->
+  </div>
 </div>
 
+
+
+<script src="//cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
 <script src="user.js"></script>
+<script src="EventBus.js"></script>
+
 <script src="js/bind_polyfill.js"></script>
 <script src="js/classlist_polyfill.js"></script>
 <script src="js/animframe_polyfill.js"></script>
@@ -83,7 +92,6 @@
 <script src="js/local_storage_manager.js"></script>
 <script src="js/game_manager.js"></script>
 <script src="js/application.js"></script>
-<script src="//cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
 
 
 
@@ -97,6 +105,42 @@
         console.log('share ret', ret);
       }
     });
+
+//    SENSORO.getVisitorInfo(function(err, ret) {
+//      if(err) {
+//        console.log('getVisitorInfo err', err);
+//      } else {
+//        console.log('getVisitorInfo ret', ret);
+//      }
+//    });
+
+
+
+
+
+    function myFunction(event, score, cardId) {
+      console.log('append score');
+      var el = document.createElement('a');
+      el.innerHTML = score;
+      el.onclick = function(event){
+        SENSORO.take(cardId, function(err, ret) {
+          if(err) {
+            console.log('take err, ', err);
+          } else {
+            console.log('take ret, ', ret);
+          }
+        });
+
+      };
+      el.className = 'gift-container';
+      $('.gifts-container').append(el);
+
+
+    }
+    EventBus.addEventListener("won", myFunction);
+
+
+
 
   });
 </script>

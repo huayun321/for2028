@@ -1,10 +1,11 @@
-function GameManager(SENSORO, size, InputManager, Actuator, StorageManager) {
+function GameManager(winScore, size, InputManager, Actuator, StorageManager) {
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
   this.actuator       = new Actuator;
 
   this.startTiles     = 2;
+  this.winScore = winScore;
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
@@ -170,24 +171,18 @@ GameManager.prototype.move = function (direction) {
             self.won = true;
           }
 
-          //for yunzix
-          if(merged.value === 8) {
-            console.log('hello 16');
-            self.won = true;
-            SENSORO.take('p83Xcs1rarQHX_19IECcqJRrSFvs', function(err, ret) {
-              if(err) {
-                console.log('take err', err);
-              } else {
-                console.log('take ret', ret);
-              }
-            })
-          }
-          if(merged.value === 32) {
-            console.log('hello 32');
-          }
-          if(merged.value === 100) {
 
+          var scoreKey = 's' + merged.value;
+          console.log(scoreKey);
+          if (self.winScore[scoreKey]) {
+            console.log('won!!!!');
+            self.won = true;
+            EventBus.dispatch('won', this, merged.value, self.winScore[scoreKey]);
+            delete self.winScore[scoreKey];
           }
+          //console.log(self.winScore);
+
+
         } else {
           self.moveTile(tile, positions.farthest);
         }
