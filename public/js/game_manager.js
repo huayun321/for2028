@@ -171,17 +171,12 @@ GameManager.prototype.move = function (direction) {
             self.won = true;
           }
 
-
           var scoreKey = 's' + merged.value;
           console.log(scoreKey);
           if (self.winScore[scoreKey]) {
-            console.log('won!!!!');
-            self.won = true;
             EventBus.dispatch('won', this, merged.value, self.winScore[scoreKey]);
             delete self.winScore[scoreKey];
           }
-          //console.log(self.winScore);
-
 
         } else {
           self.moveTile(tile, positions.farthest);
