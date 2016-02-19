@@ -188,6 +188,7 @@ GameManager.prototype.move = function (direction) {
 
           if (merged.value > self.bestPoint) {
             self.storageManager.setBestPoint(merged.value);
+            self.bestPoint = merged.value;
           }
 
 
