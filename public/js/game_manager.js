@@ -46,7 +46,7 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
-    //this.winScore    = previousWinScore || this.winScore;
+    this.winScore    = previousWinScore || this.winScore;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
@@ -56,7 +56,7 @@ GameManager.prototype.setup = function () {
 
     // Add the initial tiles
     this.addStartTiles();
-    //this.storageManager.setWinScore(this.winScore);
+    this.storageManager.setWinScore(this.winScore);
   }
 
   // Update the actuator
