@@ -21,7 +21,7 @@
   <div id="share">
   </div>
   <div class="heading">
-    <img src="star.jpg" width="50">
+    <img id="headimg" src="star.jpg" width="60">
     <div class="scores-container">
       <div class="score-container">0</div>
       <div class="best-container">0</div>
@@ -110,7 +110,7 @@
         console.log('getVisitorInfo ret', ret);
         SENSORO.setDic({nickname:ret.nickname});
 
-        $('.title img').attr('src', ret.headimgurl);
+        $('#headimg').attr('src', ret.headimgurl);
 
         SENSORO.share({title:ret.nickname + '分享了2048小游戏给你.', desc:'看看能不能超过我的分数!'}, function(err, ret) {
           if(err) {
