@@ -123,23 +123,23 @@
     });
 
 
-//    SENSORO.getDic(function(err,ret){
-//      if(err) {
-//        console.log('getDic err', err);
-//      } else {
-//        console.log('getDic ret', ret);
-//        alert( typeof(ret) );
-//        if(typeof(ret) == 'string')
-//        {
-//          ret = JSON.parse(ret);
-//          alert(ret);
-//        }
-//        if(ret) {
-//          $('#share').text(ret.nickname + 'shared this game to u.');
-//        }
-//
-//      }
-//    });
+    SENSORO.getDic(function(err,ret){
+      if(err) {
+        console.log('getDic err', err);
+      } else {
+        console.log('getDic ret', ret);
+        alert( JSON.stringify(ret) );
+        if(typeof(ret) == 'string')
+        {
+          ret = JSON.parse(ret);
+          alert(ret);
+        }
+        if(ret) {
+          $('#share').text(ret.nickname + 'shared this game to u.');
+        }
+
+      }
+    });
 
     function myFunction(event, score, cardId) {
       console.log('append score');
