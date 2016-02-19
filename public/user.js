@@ -192,7 +192,7 @@ var SENSORO = {
   // 自定义字典－存
   setDic: function(){
 
-    if(arguments.length>1){
+    if(arguments.length>2){
       return console.warn('1 is max, while u pass ' + arguments.length);
     }
 
