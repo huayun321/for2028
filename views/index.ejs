@@ -145,7 +145,7 @@
           } else {
             console.log('take ret, ', ret);
             event.target.className += ' ' + 'gift-container-win';
-            event.target.disabled = true;
+            event.target.setAttribute('disabled', 'disabled');
           }
 
         });
