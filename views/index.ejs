@@ -102,13 +102,7 @@
 <script>
   $(document).ready(function() {
     SENSORO.init();
-    SENSORO.share({title:'2048', desc:'2048desc'}, function(err, ret) {
-      if(err) {
-        console.log('share err', err);
-      } else {
-        console.log('share ret', ret);
-      }
-    });
+
 
     SENSORO.getUserInfo(function(err, ret) {
       if(err) {
@@ -116,6 +110,14 @@
       } else {
         console.log('getVisitorInfo ret', ret);
         SENSORO.setDic({nickname:ret.nickname});
+
+        SENSORO.share({title:ret.nickname + '分享了2048小游戏给你.', desc:'看看能不能超过我的分数!'}, function(err, ret) {
+          if(err) {
+            console.log('share err', err);
+          } else {
+            console.log('share ret', ret);
+          }
+        });
       }
     });
 
