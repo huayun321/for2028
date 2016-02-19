@@ -37,7 +37,7 @@ GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
   //var previousWinScore = this.storageManager.getWinScore();
   var previousBestPoint = this.storageManager.getBestPoint();
-  console.log('previousWinScore=',previousWinScore);
+  //console.log('previousWinScore=',previousWinScore);
 
   // Reload the game from a previous game if present
   if (previousState) {
