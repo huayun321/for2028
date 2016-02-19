@@ -153,6 +153,8 @@
             console.log('take ret, ', ret);
             event.target.className += ' ' + 'gift-container-win';
             event.target.setAttribute('disabled', 'disabled');
+            event.target.disabled = true;
+            event.target.removeEventListener('click');
             $(el).off('click');
 
           }
