@@ -56,6 +56,7 @@ GameManager.prototype.setup = function () {
 
     // Add the initial tiles
     this.addStartTiles();
+    this.storageManager.setWinScore(this.winScore);
   }
 
   // Update the actuator
