@@ -128,11 +128,11 @@
         console.log('getDic err', err);
       } else {
         console.log('getDic ret', ret);
-        alert( JSON.stringify(ret) );
+//        alert( JSON.stringify(ret) );
         if(typeof(ret) == 'string')
         {
           ret = JSON.parse(ret);
-          alert(ret);
+//          alert(ret);
         }
         if(ret) {
           $('#share').text(ret.nickname + 'shared this game to u.');
