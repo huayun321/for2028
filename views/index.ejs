@@ -143,7 +143,7 @@
 
     function myFunction(event, score, cardId) {
       console.log('append score');
-      var el = document.createElement('a');
+      var el = document.createElement('button');
       el.innerHTML = score;
 
 //      $(el).on('click', function(event){
@@ -172,7 +172,7 @@
             console.log('take ret, ', ret);
             event.target.className += ' ' + 'gift-container-win';
             event.target.setAttribute('disabled', 'disabled');
-            event.target.css('pointer-events', 'none');
+//            event.target.css('pointer-events', 'none');
             self.off('click');
 
 
