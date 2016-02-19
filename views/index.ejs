@@ -18,6 +18,11 @@
 </head>
 <body>
 <div class="container">
+  <div>
+    <p>XXX shared this game to u.<br>
+      His best score is 8888.
+    </p>
+  </div>
   <div class="heading">
     <h1 class="title">2048</h1>
     <div class="scores-container">
@@ -28,6 +33,7 @@
 
   <div class="above-game">
     <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
+
     <a class="restart-button">New Game</a>
   </div>
 
@@ -113,6 +119,10 @@
 //        console.log('getVisitorInfo ret', ret);
 //      }
 //    });
+
+    SENSORO.setDic({});
+
+    SENSORO.getDic(function(err,ret){});
 
 
 
