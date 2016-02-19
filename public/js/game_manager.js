@@ -47,7 +47,7 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
-    this.winScore    = previousWinScore || this.winScore;
+    //this.winScore    = previousWinScore || this.winScore;
     this.bestPoint   = previousBestPoint || 0;
   } else {
     this.grid        = new Grid(this.size);
@@ -58,7 +58,7 @@ GameManager.prototype.setup = function () {
 
     // Add the initial tiles
     this.addStartTiles();
-    this.storageManager.setWinScore(this.winScore);
+    //this.storageManager.setWinScore(this.winScore);
     this.bestPoint = 0;
   }
 
