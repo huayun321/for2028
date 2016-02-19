@@ -9,5 +9,6 @@ window.requestAnimationFrame(function () {
     's2048': 'p83Xcs9Qv86hPvVsCdr0nIc52r_Y'
   }
 
-  new GameManager(winScore, 4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+  var gm = new GameManager(winScore, 4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
+  window.gm = gm;
 });

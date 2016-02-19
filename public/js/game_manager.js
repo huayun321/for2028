@@ -36,6 +36,7 @@ GameManager.prototype.isGameTerminated = function () {
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
   var previousWinScore = this.storageManager.getWinScore();
+  var previousBestPoint = this.storageManager.getBestPoint();
   console.log('previousWinScore=',previousWinScore);
 
   // Reload the game from a previous game if present
@@ -47,6 +48,7 @@ GameManager.prototype.setup = function () {
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
     this.winScore    = previousWinScore || this.winScore;
+    this.bestPoint   = previousBestPoint || 0;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
@@ -57,6 +59,7 @@ GameManager.prototype.setup = function () {
     // Add the initial tiles
     this.addStartTiles();
     this.storageManager.setWinScore(this.winScore);
+    this.bestPoint = 0;
   }
 
   // Update the actuator
@@ -182,6 +185,11 @@ GameManager.prototype.move = function (direction) {
             delete self.winScore[scoreKey];
             self.storageManager.setWinScore(self.winScore);
           }
+
+          if (merged.value > self.bestPoint) {
+            self.storageManager.setBestPoint(merged.value);
+          }
+
 
         } else {
           self.moveTile(tile, positions.farthest);

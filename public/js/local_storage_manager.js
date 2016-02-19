@@ -21,7 +21,8 @@ window.fakeStorage = {
 function LocalStorageManager() {
   this.bestScoreKey     = "bestScore";
   this.gameStateKey     = "gameState";
-  this.winScoreKey     = "winScore";
+  this.winScoreKey      = "winScore";
+  this.bestPointKey     = "bestPoint";
 
   var supported = this.localStorageSupported();
   this.storage = supported ? window.localStorage : window.fakeStorage;
@@ -72,5 +73,20 @@ LocalStorageManager.prototype.getWinScore = function () {
 
 LocalStorageManager.prototype.setWinScore = function (winScore) {
   this.storage.setItem(this.winScoreKey, JSON.stringify(winScore));
+};
+
+
+// best point
+LocalStorageManager.prototype.getBestPoint = function () {
+  var BestPointJSON = this.storage.getItem(this.bestPointKey);
+  return BestPointJSON ? JSON.parse(BestPointJSON) : null;
+};
+
+LocalStorageManager.prototype.setBestPoint = function (bestPoint) {
+  this.storage.setItem(this.bestPointKey, JSON.stringify(bestPoint));
+};
+
+LocalStorageManager.prototype.clearBestPoint = function () {
+  this.storage.removeItem(this.bestPointKey);
 };
 
