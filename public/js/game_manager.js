@@ -17,7 +17,6 @@ function GameManager(winScore, size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
-  this.storageManager.clearWinScore();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
 };
@@ -36,9 +35,9 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
-  //var previousWinScore = this.storageManager.getWinScore();
+  var previousWinScore = this.storageManager.getWinScore();
   var previousBestPoint = this.storageManager.getBestPoint();
-  //console.log('previousWinScore=',previousWinScore);
+  console.log('previousWinScore=',previousWinScore);
 
   // Reload the game from a previous game if present
   if (previousState) {
@@ -48,7 +47,7 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
-    //this.winScore    = previousWinScore || this.winScore;
+    this.winScore    = previousWinScore || this.winScore;
     this.bestPoint   = previousBestPoint || 0;
   } else {
     this.grid        = new Grid(this.size);
@@ -59,7 +58,7 @@ GameManager.prototype.setup = function () {
 
     // Add the initial tiles
     this.addStartTiles();
-    //this.storageManager.setWinScore(this.winScore);
+    this.storageManager.setWinScore(this.winScore);
     this.bestPoint = 0;
   }
 
@@ -184,7 +183,7 @@ GameManager.prototype.move = function (direction) {
           if (self.winScore[scoreKey]) {
             EventBus.dispatch('won', this, merged.value, self.winScore[scoreKey]);
             delete self.winScore[scoreKey];
-            //self.storageManager.setWinScore(self.winScore);
+            self.storageManager.setWinScore(self.winScore);
           }
 
           if (merged.value > self.bestPoint) {
