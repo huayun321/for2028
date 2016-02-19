@@ -110,21 +110,16 @@
       }
     });
 
-//    SENSORO.getVisitorInfo(function(err, ret) {
-//      if(err) {
-//        console.log('getVisitorInfo err', err);
-//      } else {
-//        console.log('getVisitorInfo ret', ret);
-//      }
-//    });
+    SENSORO.getVisitorInfo(function(err, ret) {
+      if(err) {
+        console.log('getVisitorInfo err', err);
+      } else {
+        console.log('getVisitorInfo ret', ret);
+      }
+    });
 
     SENSORO.setDic({});
-
     SENSORO.getDic(function(err,ret){});
-
-
-
-
 
     function myFunction(event, score, cardId) {
       console.log('append score');
