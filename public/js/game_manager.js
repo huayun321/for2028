@@ -36,6 +36,7 @@ GameManager.prototype.isGameTerminated = function () {
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
   var previousWinScore = this.storageManager.getWinScore();
+  console.log('previousWinScore=',previousWinScore);
 
   // Reload the game from a previous game if present
   if (previousState) {
