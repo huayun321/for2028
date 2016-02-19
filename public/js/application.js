@@ -2,11 +2,9 @@
 window.requestAnimationFrame(function () {
 
   var winScore = {
-    's8'   : 'p83Xcs9Qv86hPvVsCdr0nIc52r_Y',
-    's16' : 'p83Xcs0a56gO1RtcAthkn9wC68tg',
-    's32' : 'p83Xcs5WNCIJxXiA7DuWEi69Pcbg',
-    's1024': 'p83Xcs0TuD-sZebI1cgOQSzhtS_Q',
-    's2048': 'p83Xcs9Qv86hPvVsCdr0nIc52r_Y'
+    's1024'   : 'pkrUcwEs1cKVPQnyeNsHpYOELSF4',
+    's2048' : 'pkrUcwMKzNtWO_13VldWTRuzZNHU',
+    's4096': 'pkrUcwA6LPaBNkiB_-QJSdbH07f4',
   }
 
   var gm = new GameManager(winScore, 4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
