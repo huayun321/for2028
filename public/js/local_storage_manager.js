@@ -75,6 +75,10 @@ LocalStorageManager.prototype.setWinScore = function (winScore) {
   this.storage.setItem(this.winScoreKey, JSON.stringify(winScore));
 };
 
+LocalStorageManager.prototype.clearWinScore = function () {
+  this.storage.removeItem(this.winScoreKey);
+};
+
 
 // best point
 LocalStorageManager.prototype.getBestPoint = function () {

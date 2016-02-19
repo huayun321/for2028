@@ -17,6 +17,7 @@ function GameManager(winScore, size, InputManager, Actuator, StorageManager) {
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
+  this.storageManager.clearWinScore();
   this.actuator.continueGame(); // Clear the game won/lost message
   this.setup();
 };
