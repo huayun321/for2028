@@ -164,6 +164,9 @@
 
       el.onclick = function(event){
         var self = $(this);
+        if(self.hasClass('gift-container-win') ){
+          return;
+        }
 
         SENSORO.take(cardId, function(err, ret) {
           if(err) {
