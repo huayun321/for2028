@@ -35,7 +35,7 @@ GameManager.prototype.isGameTerminated = function () {
 // Set up the game
 GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
-  var previousWinScore = this.storageManager.getWinScore();
+  //var previousWinScore = this.storageManager.getWinScore();
   var previousBestPoint = this.storageManager.getBestPoint();
   console.log('previousWinScore=',previousWinScore);
 
@@ -183,7 +183,7 @@ GameManager.prototype.move = function (direction) {
           if (self.winScore[scoreKey]) {
             EventBus.dispatch('won', this, merged.value, self.winScore[scoreKey]);
             delete self.winScore[scoreKey];
-            self.storageManager.setWinScore(self.winScore);
+            //self.storageManager.setWinScore(self.winScore);
           }
 
           if (merged.value > self.bestPoint) {
