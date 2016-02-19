@@ -44,6 +44,7 @@ GameManager.prototype.setup = function () {
     this.over        = previousState.over;
     this.won         = previousState.won;
     this.keepPlaying = previousState.keepPlaying;
+    this.winScore    = previousState.getWinScore();
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
@@ -176,6 +177,7 @@ GameManager.prototype.move = function (direction) {
           if (self.winScore[scoreKey]) {
             EventBus.dispatch('won', this, merged.value, self.winScore[scoreKey]);
             delete self.winScore[scoreKey];
+            self.storageManager.setWinScore(self.winScore);
           }
 
         } else {
