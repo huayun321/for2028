@@ -134,7 +134,7 @@
           ret = JSON.parse(ret);
 //          alert(ret);
         }
-        if(ret) {
+        if(ret && ret.nickname) {
           $('#share').text(ret.nickname + 'shared this game to u.');
         }
 
