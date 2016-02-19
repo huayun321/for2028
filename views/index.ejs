@@ -172,6 +172,7 @@
             console.log('take ret, ', ret);
             event.target.className += ' ' + 'gift-container-win';
             event.target.setAttribute('disabled', 'disabled');
+            event.target.css('pointer-events', 'none');
             self.off('click');
 
 
