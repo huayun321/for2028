@@ -112,7 +112,7 @@
 
         $('#headimg').attr('src', ret.headimgurl);
 
-        SENSORO.share({title:ret.nickname + '分享了2048小游戏给你.', desc:'看看能不能超过我的分数!', imgUrl:ret.headimgurl}, function(err, ret) {
+        SENSORO.share({title:ret.nickname + '在2048小游戏中拿到了' + window.gm.bestPoint + '分', desc:'看看能不能超过TA!', imgUrl:ret.headimgurl}, function(err, ret) {
           if(err) {
             console.log('share err', err);
           } else {
