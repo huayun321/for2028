@@ -128,7 +128,7 @@
         console.log('getDic err', err);
       } else {
         console.log('getDic ret', ret);
-        alert(ret.nickname);
+        alert( typeof(ret) );
         if(ret) {
           $('#share').text(ret.nickname + 'shared this game to u1');
         }
