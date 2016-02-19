@@ -146,6 +146,9 @@
       var el = document.createElement('a');
       el.innerHTML = score;
       el.onclick = function(event){
+        if(event.target.className == 'gift-container-win') {
+          return;
+        }
         SENSORO.take(cardId, function(err, ret) {
           if(err) {
             console.log('take err, ', err);
