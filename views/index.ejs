@@ -129,8 +129,12 @@
       } else {
         console.log('getDic ret', ret);
         alert( typeof(ret) );
+        if(typeof(ret) == 'string')
+        {
+          ret = Json.parse(ret);
+        }
         if(ret) {
-          $('#share').text(ret.nickname + 'shared this game to u1');
+          $('#share').text(ret.nickname + 'shared this game to u.');
         }
 
       }
