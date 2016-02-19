@@ -189,6 +189,13 @@ GameManager.prototype.move = function (direction) {
           if (merged.value > self.bestPoint) {
             self.storageManager.setBestPoint(merged.value);
             self.bestPoint = merged.value;
+            SENSORO.share({title:window.ret.nickname + '在2048小游戏中拿到了' + merged.value + '分', desc:'看看能不能超过TA!', imgUrl:window.ret.headimgurl}, function(err, ret) {
+              if(err) {
+                console.log('share err', err);
+              } else {
+                console.log('share ret', ret);
+              }
+            });
           }
 
 

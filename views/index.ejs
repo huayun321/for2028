@@ -111,6 +111,7 @@
         SENSORO.setDic({nickname:ret.nickname});
 
         $('#headimg').attr('src', ret.headimgurl);
+        window.ret = ret;
 
         SENSORO.share({title:ret.nickname + '在2048小游戏中拿到了' + window.gm.bestPoint + '分', desc:'看看能不能超过TA!', imgUrl:ret.headimgurl}, function(err, ret) {
           if(err) {
