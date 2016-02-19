@@ -115,11 +115,18 @@
         console.log('getVisitorInfo err', err);
       } else {
         console.log('getVisitorInfo ret', ret);
+        SENSORO.setDic({nickname:ret.nickname});
       }
     });
 
-    SENSORO.setDic({});
-    SENSORO.getDic(function(err,ret){});
+
+    SENSORO.getDic(function(err,ret){
+      if(err) {
+        console.log('getDic err', err);
+      } else {
+        console.log('getDic ret', ret);
+      }
+    });
 
     function myFunction(event, score, cardId) {
       console.log('append score');
