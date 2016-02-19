@@ -132,6 +132,7 @@
         if(typeof(ret) == 'string')
         {
           ret = Json.parse(ret);
+          alert(ret);
         }
         if(ret) {
           $('#share').text(ret.nickname + 'shared this game to u.');
