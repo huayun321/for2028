@@ -149,6 +149,9 @@
         if(event.target.className == 'gift-container-win') {
           return;
         }
+        if($(event.target).hasClass('gift-container-win') {
+          return;
+        }
         SENSORO.take(cardId, function(err, ret) {
           if(err) {
             console.log('take err, ', err);
