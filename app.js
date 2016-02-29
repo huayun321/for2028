@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
+var noapi = require('./routes/noapi');
+
 var users = require('./routes/users');
 var pingpong = require('./routes/pingpong');
 var cardmatching = require('./routes/cardmatching');
@@ -27,6 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/noapi', noapi);
+
 app.use('/users', users);
 app.use('/pingpong', pingpong);
 app.use('/cardmatching', cardmatching);
